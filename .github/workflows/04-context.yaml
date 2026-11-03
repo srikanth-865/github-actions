@@ -15,4 +15,4 @@ jobs: # stages
       - name: Prinitng Env variables
         run: |
           echo "project: $project"
-          echo "Component: is $component"
+          echo "Component: $component"
