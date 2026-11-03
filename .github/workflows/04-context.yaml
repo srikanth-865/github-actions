@@ -16,3 +16,7 @@ jobs: # stages
         run: |
           echo "project: $project"
           echo "Component: $component"
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
