@@ -10,7 +10,7 @@ env:
 jobs: # stages
   first-job: # stage
     outputs:
-     version: "${{steps.version.outputs.image-version}}"
+     version: "${{steps.version.image-version}}" #we define and expose expilctly by adding this for our version here
     runs-on: ubuntu-latest # agent, ubuntu-latest is github hosted runner
     steps:
     #this give us fulldata of event
@@ -33,7 +33,7 @@ jobs: # stages
           echo "Course: $course"
 
       - name: application version
-        id: version #it for reference of the output value 
+        id: version #it for reference defining for the output value 1.0.0
         run: |
           echo "image-version=1.0.0" >> $GITHUB_OUTPUT
 
