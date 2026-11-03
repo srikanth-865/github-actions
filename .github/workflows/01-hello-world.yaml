@@ -2,6 +2,7 @@ name: hello-world
 # triggers
 on: 
   push:
+  workflow_dispatch:
 jobs: # stages
   my-job: # stage
     runs-on: ubuntu-latest # agent, ubuntu-latest is github hosted runner
