@@ -2,7 +2,7 @@ name: call another workflow
 on: 
   push:
     branches: 
-        - 'main'
+        - 'main'  
 jobs:
   feature-pipeline:
     uses: srikanth-865/workflows/.github/workflows/nodejs-eks-feature.yaml@main  # Reference local path if in the same repository
