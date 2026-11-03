@@ -7,5 +7,5 @@ jobs:
   feature-pipeline:
     uses: srikanth-865/workflows/.github/workflows/nodejs-eks-feature.yaml@main  # Reference local path if in the same repository
     with:
-      project: 'roboshop' 
+      project: 'roboshop'   
       component: 'catalogue' 
