@@ -10,7 +10,7 @@ env:
 jobs: # stages
   first-job: # stage
     outputs:
-     version: "${{steps.version.image-version}}" #we define and expose expilctly by adding this for our version here
+     version: "${{steps.version.outputs.image-version}}" #we define and expose expilctly by adding this for our version here
     runs-on: ubuntu-latest # agent, ubuntu-latest is github hosted runner
     steps:
     #this give us fulldata of event
