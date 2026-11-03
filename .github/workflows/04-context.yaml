@@ -8,7 +8,9 @@ env:
  component: "Catalogue"
 
 jobs: # stages
-  my-job: # stage
+  first-job: # stage
+    outputs:
+     version: "${{steps.version.outputs.image-version}}"
     runs-on: ubuntu-latest # agent, ubuntu-latest is github hosted runner
     steps:
     #this give us fulldata of event
@@ -29,3 +31,16 @@ jobs: # stages
       - name: access another step variables
         run: |
           echo "Course: $course"
+
+      - name: application version
+        id: version #it for reference of the output value 
+        run: |
+          echo "image-version=1.0.0" >> $GITHUB_OUTPUT
+
+  second-job:
+    runs-on: ubuntu-latest # agent, ubuntu-latest is github hosted runner
+    needs: first-job
+    steps:
+      - name: access variable from first-job outputs
+        run: |
+          echo "Image version: ${{ needs.first-job.outputs.version }}"
