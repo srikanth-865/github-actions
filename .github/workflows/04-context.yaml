@@ -20,3 +20,12 @@ jobs: # stages
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
+
+      - name: add variables to env
+        run: |
+          echo "course=github-actions" >> $GITHUB_ENV
+          echo "duration=5hours" >> $GITHUB_ENV
+
+      - name: access another step variables
+        run: |
+          echo "Course: $course"
