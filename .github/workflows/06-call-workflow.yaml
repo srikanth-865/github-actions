@@ -1,7 +1,7 @@
 name: call another workflow
 on: 
   push:
-    branches:
+    branches: 
         - 'main'
 jobs:
   feature-pipeline:
