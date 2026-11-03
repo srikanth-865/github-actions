@@ -1,0 +1,18 @@
+name: context
+# triggers
+on: 
+ push:
+env:
+ project: "roboshop"
+ environment: "dev"
+ component: "Catalogue"
+
+jobs: # stages
+  my-job: # stage
+    runs-on: ubuntu-latest # agent, ubuntu-latest is github hosted runner
+    steps:
+    #this give us fulldata of event
+      - name: Prinitng Env variables
+        run: |
+          echo "project: $project"
+          echo "Component: is $Component"
