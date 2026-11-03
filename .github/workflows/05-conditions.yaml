@@ -2,7 +2,7 @@ name: conditions
 # triggers
 on: 
   push:
-concurrency:   
+concurrency:  
   group: ${{ github.workflow }}-${{ github.ref }} # conditions-main
   cancel-in-progress: false # we can trigger workflow multiple times, upcoming workflows should wait
 
