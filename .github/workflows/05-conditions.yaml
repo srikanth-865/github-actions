@@ -1,0 +1,16 @@
+name: conditions
+# triggers
+on: 
+  push:
+jobs: # stages  
+  my-job: # stage
+    runs-on: ubuntu-latest # agent, ubuntu-latest is github hosted runner
+    steps:
+        - name: main branch
+          if: github.ref_name == 'main' 
+          run: echo "this is executed when main branch updated"
+
+        - name: feature branch
+          if: github.ref_name != 'main' 
+          run: echo "this is executed when feature branch updated"
+        
