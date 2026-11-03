@@ -11,7 +11,6 @@ jobs: # stages
   first-job: # stage
     outputs:
      version: "${{steps.version.outputs.image-version}}" #we define and expose expilctly by adding this for our version here
-     version: "${{steps.version.outputs.name}}"
     runs-on: ubuntu-latest # agent, ubuntu-latest is github hosted runner
     steps:
     #this give us fulldata of event
@@ -37,7 +36,6 @@ jobs: # stages
         id: version #it for reference defining for the output value 1.0.0
         run: |
           echo "image-version=1.0.0" >> $GITHUB_OUTPUT
-          echo "name=catalogue" >> $GITHUB_OUTPUT
 
   second-job:
     runs-on: ubuntu-latest # agent, ubuntu-latest is github hosted runner
@@ -46,4 +44,4 @@ jobs: # stages
       - name: access variable from first-job outputs
         run: |
           echo "Image version: ${{ needs.first-job.outputs.version }}"
-          echo "name is: ${{ needs.first-job.outputs.name }}"
+          
