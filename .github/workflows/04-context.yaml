@@ -37,6 +37,11 @@ jobs: # stages
         run: |
           echo "image-version=1.0.0" >> $GITHUB_OUTPUT
 
+      - name: Dump job context
+        env:
+          JOB_CONTEXT: ${{ toJSON(job) }}
+        run: echo "$JOB_CONTEXT"
+
   second-job:
     runs-on: ubuntu-latest # agent, ubuntu-latest is github hosted runner
     needs: first-job
