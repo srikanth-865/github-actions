@@ -6,7 +6,7 @@ jobs:
   steps:
     - name: say-good-morning
       id: good-morning #its for reference
-      uses: srikanth-865/workflows/.github/actions/gm/actions.yaml@main 
+      uses: srikanth-865/workflows/.github/actions/gm@main 
       with:
         person: "Ramesh"  #input name we are passing here
       
