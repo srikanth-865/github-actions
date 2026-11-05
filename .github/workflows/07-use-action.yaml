@@ -1,0 +1,16 @@
+name: GoodMorning
+on: workflow_dispatch
+jobs:
+ says-goodmorning:
+  runs-on: ubuntu-latest
+  steps:
+    - name: say-good-morning
+      id: good-morning #its for reference
+      uses: srikanth-865/workflows/.github/actions/gm@main
+      with:
+        person: "Ramesh"  #input name we are passing here
+      
+    - name: get the output  
+      run: |
+          echo "${{ steps.good-morning.outputs.greeting-status }}"
+    
